@@ -9,7 +9,7 @@ import { GameServiceService } from 'src/app/services/game-service.service';
 })
 export class HomeComponent implements OnInit {
   games = [{ title: '' }];
-
+  searchKey!: String;
   constructor(
     private gameService: GameServiceService,
     private router: Router
@@ -25,4 +25,6 @@ export class HomeComponent implements OnInit {
   showMore() {
     this.router.navigate(['/games']);
   }
+
+  search() {}
 }

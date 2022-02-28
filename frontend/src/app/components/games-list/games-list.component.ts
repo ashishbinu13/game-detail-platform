@@ -8,6 +8,7 @@ import { GameServiceService } from 'src/app/services/game-service.service';
 })
 export class GamesListComponent implements OnInit {
   config: any;
+  searchKey!: String;
   games = [
     {
       title: '',
@@ -26,12 +27,30 @@ export class GamesListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.gameService.getGames().subscribe((data) => {
-      this.games = JSON.parse(JSON.stringify(data));
-    });
+    if (this.searchKey === undefined) {
+      this.gameService.getGames().subscribe((data) => {
+        this.games = JSON.parse(JSON.stringify(data));
+      });
+    }
   }
 
   pageChanged(event: any) {
     this.config.currentPage = event;
+  }
+
+  search() {
+    console.log(this.searchKey);
+
+    if (
+      this.searchKey === 'pc' ||
+      this.searchKey === 'browser' ||
+      this.searchKey === 'all'
+    ) {
+      this.gameService
+        .searchGames(this.searchKey, 'platform')
+        .subscribe((data) => {
+          this.games = JSON.parse(JSON.stringify(data));
+        });
+    }
   }
 }

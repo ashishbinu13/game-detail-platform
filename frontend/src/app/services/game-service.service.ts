@@ -12,4 +12,10 @@ export class GameServiceService {
   getGames() {
     return this.http.get(`${this.base_url}/games/getGames`);
   }
+  searchGames(searchKey: any, type: any) {
+    return this.http.post(`${this.base_url}/games/searchGames`, {
+      searchKey,
+      type,
+    });
+  }
 }

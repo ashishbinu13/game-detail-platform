@@ -1,0 +1,49 @@
+<!-- navbar -->
+<nav>
+  <h3>S&H Platform</h3>
+  <div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-4">
+        <div class="search">
+          <input type="text" class="form-control" placeholder="Search" />
+          <button class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- navbar -->
+
+<!-- list -->
+
+<div class="list-container">
+  <div *ngFor="let game of games | paginate: config" class="info">
+    <div class="image">
+      <img
+        src="https://media.kasperskydaily.com/wp-content/uploads/sites/92/2014/04/18130043/online-gamer-threats-featured.jpg"
+        alt=""
+      />
+    </div>
+    <div class="game-data">
+      <div class="left">
+        <h4>{{ game.title }}</h4>
+        <h6>{{ game.developer }}</h6>
+        <p>{{ game.short_description }}</p>
+      </div>
+
+      <div class="right">
+        <h6>{{ game.platform }}</h6>
+        <h6>{{ game.genre }}</h6>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <pagination-controls
+      (pageChange)="pageChanged($event)"
+    ></pagination-controls>
+  </div>
+</div>
+
+<!-- list -->

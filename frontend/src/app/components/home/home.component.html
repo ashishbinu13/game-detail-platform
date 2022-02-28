@@ -1,0 +1,41 @@
+<!-- navbar -->
+<nav>
+  <h3>S&H Platform</h3>
+  <div class="container">
+    <div class="row height d-flex justify-content-center align-items-center">
+      <div class="col-md-4">
+        <div class="search">
+          <input type="text" class="form-control" placeholder="Search" />
+          <button class="btn btn-primary">Search</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- navbar -->
+
+<!-- game info -->
+<div class="info-container">
+  <div *ngFor="let game of games" class="card" style="width: 18rem">
+    <img
+      class="card-img-top"
+      src="https://media.kasperskydaily.com/wp-content/uploads/sites/92/2014/04/18130043/online-gamer-threats-featured.jpg"
+      alt="Card image cap"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ game.title }}</h5>
+
+      <a href="#" class="btn btn-primary">Show</a>
+    </div>
+  </div>
+</div>
+<!-- game info -->
+
+<!-- footer -->
+<div class="footer">
+  <h1>Know More About Games</h1>
+
+  <button class="btn btn-primary" (click)="showMore()">Show More</button>
+</div>
+<!-- footer -->
